@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+   <script>
+
+
+   function gcd(a, b) {
+
+       while (b !== 0) {
+           let temp = b;
+           b = a % b;
+           a = temp;
+       }
+        return a;
+   }
+
+   function areFractionsEqual(num1, den1, num2, den2) {
+   
+       let commonDivisor = gcd(num1, den1);
+       num1 /= commonDivisor;
+       den1 /= commonDivisor;
+
+       commonDivisor = gcd(num2, den2);
+       num2 /= commonDivisor;
+       den2 /= commonDivisor;
+
+       return num1 === num2 && den1 === den2;
+   }
+
+   console.log(areFractionsEqual(1, 2, 2, 4)); 
+   console.log(areFractionsEqual(1, 2, 1, 2)); 
+   console.log(areFractionsEqual(1, 2, 2, 3)); 
+
+   </script>
+
+
+</body>
+</html>
