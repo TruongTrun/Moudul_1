@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý sổ tiết kiệm</title>
+<style>
+    /* CSS cho giao diện */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"], input[type="number"], input[type="date"] {
+        width: 200px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    input[type="submit"] {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #f2f2f2;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    table {
+        border: 5px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #130f0f;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .delete-button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h2>Quản lý sổ tiết kiệm</h2>
+<form id="addForm">
+    <label for="maSo">Mã số:</label>
+    <input type="text" id="maSo" required maxlength="5"><br>
+    <label for="loaiTietKiem">Loại tiết kiệm:</label>
+    <input type="text" id="loaiTietKiem" required maxlength="10"><br>
+    <label for="hoTen">Họ tên khách hàng:</label>
+    <input type="text" id="hoTen" required maxlength="30"><br>
+    <label for="cmnd">Chứng minh nhân dân:</label>
+    <input type="text" id="cmnd" required><br>
+    <label for="ngayMoSo">Ngày mở sổ:</label>
+    <input type="date" id="ngayMoSo" required><br>
+    <label for="soTienGui">Số tiền gửi:</label>
+    <input type="number" id="soTienGui" required><br>
+    <input type="submit" value="Thêm sổ tiết kiệm">
+</form>
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Mã số</th>
+            <th>Loại tiết kiệm</th>
+            <th>Họ tên khách hàng</th>
+            <th>Chứng minh nhân dân</th>
+            <th>Ngày mở sổ</th>
+            <th>Số tiền gửi</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody id="dataBody">
+       
+    </tbody>
+</table>
+
+<script>
+    
+    document.getElementById("addForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var maSo = document.getElementById("maSo").value;
+        var loaiTietKiem = document.getElementById("loaiTietKiem").value;
+        var hoTen = document.getElementById("hoTen").value;
+        var cmnd = document.getElementById("cmnd").value;
+        var ngayMoSo = document.getElementById("ngayMoSo").value;
+        var soTienGui = document.getElementById("soTienGui").value;
+
+        var table = document.getElementById("dataTable");
+        var row = table.insertRow(-1);
+        row.insertCell(0).textContent = maSo;
+        row.insertCell(1).textContent = loaiTietKiem;
+        row.insertCell(2).textContent = hoTen;
+        row.insertCell(3).textContent = cmnd;
+        row.insertCell(4).textContent = ngayMoSo;
+        row.insertCell(5).textContent = soTienGui;
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Xóa";
+        deleteButton.className = "delete-button";
+        deleteButton.addEventListener("click", function() {
+            var inputMaSo = prompt("Nhập mã số sổ tiết kiệm bạn muốn xóa:");
+            if (inputMaSo && inputMaSo.trim() !== "") {
+                if (maSo === inputMaSo.trim()) {
+                    if (confirm("Bạn có chắc muốn xóa sổ tiết kiệm này không?")) {
+                        table.deleteRow(row.rowIndex);
+                    }
+                } else {
+                    alert("Mã số không chính xác. Vui lòng thử lại.");
+                }
+            }
+        });
+        row.insertCell(6).appendChild(deleteButton);
+
+        document.getElementById("addForm").reset();
+    });
+</script>
+</body>
+</html>
