@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tính một ngày trong một tháng</h2>
+    <label for = "month">Nhập tháng cần tính :</label>
+    <input onclick="Number" id="month" min="1" max="12">
+    <button onclick="calculateDays()"> Tính số ngày</button>
+
+    <script>
+    function calculateDays(){
+        let month = parseInt(document.getElementById("month").value);
+        let days;
+        switch (month) {
+            case 1:
+            
+            case 3: 
+
+            case 5:
+
+            case 7:
+
+            case 8: 
+
+            case 10: 
+
+            case 12:
+                 days = 31;
+                 break;
+
+            case 4:
+
+            case 6: 
+
+            case 9: 
+
+            case 11:
+                 days = 30;
+                 break;
+
+            case 2: 
+                 days =28;
+                 break: 
+            default:
+                days = "Vui lòng nhập lại 1 tháng hợp lệ từ '1-12'.";
+            
+
+        }
+        document.getElementById("result").innerText = 'Số ngày trong tháng ${month} là: ${days}'';
+    }
+
+    </script>
+</body>
+</html>
