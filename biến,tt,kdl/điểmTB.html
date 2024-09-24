@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        
+     var vatLy = parseFloat(prompt("Nhập điểm Vật lý:"));
+     var hoaHoc = parseFloat(prompt("Nhập điểm Hóa học:"));
+     var sinhHoc = parseFloat(prompt("Nhập điểm Sinh học:"));
+
+     var tongDiem = vatLy + hoaHoc + sinhHoc;
+
+
+     var diemTrungBinh = tongDiem / 3;
+
+
+    document.write("Tổng điểm: " + tongDiem + "<br>Điểm trung bình: " + diemTrungBinh);
+
+    </script>
+</body>
+</html>

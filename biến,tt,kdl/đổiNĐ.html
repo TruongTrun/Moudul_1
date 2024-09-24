@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function CelsiusToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+    }
+
+    let celsius = parseFloat(prompt("Nhập độ C: "));
+    if (!isNaN(celsius)) {
+       document.write(`${celsius} độ C = ${CelsiusToFahrenheit(celsius)} độ F.`);
+    } else {
+        document.write("Vui lòng nhập giá trị hợp lệ.");
+    }
+
+
+    </script>
+</body>
+</html>
