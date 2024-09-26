@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Máy Tính</h1>
+    
+    <input type="number" id="number1" placeholder="Nhập Số Đầu Tiên">
+    <input type="number" id="number2" placeholder="Nhập Số Tiếp Theo">
+    
+    <br>
+
+    <button onclick="calculate('add')">Cộng(+)</button>
+    <button onclick="calculate('subtract')">Trừ(-)</button>
+    <button onclick="calculate('multiply')">Nhân(X)</button>
+    <button onclick="calculate('divide')">Chia(/)</button>
+
+    <p id="result">Kết Quả: </p>
+
+    <script>
+        function calculate(operation) {
+            const number1 = parseFloat(document.getElementById('number1').value);
+            const number2 = parseFloat(document.getElementById('number2').value);
+            let result;
+
+            if (isNaN(number1) || isNaN(number2)) {
+                document.getElementById('result').innerText = "Hãy nhập số hợp lệ!";
+                return;
+            }
+
+            switch (operation) {
+                case 'add':
+                    result = number1 + number2;
+                    document.getElementById('result').innerText = `Tổng: ${result}`;
+                    break;
+                case 'subtract':
+                    result = number1 - number2;
+                    document.getElementById('result').innerText = `Hiệu: ${result}`;
+                    break;
+                case 'multiply':
+                    result = number1 * number2;
+                    document.getElementById('result').innerText = `Tích: ${result}`;
+                    break;
+                case 'divide':
+                     if (number2 === 0) {
+                         document.getElementById('result').innerText = "Không thể chia cho 0!";
+                     } else {
+                        result = number1 / number2;
+                        document.getElementById('result').innerText = `Thương: ${result}`;
+                     }
+                    break;
+                default:
+                    document.getElementById('result').innerText = "Phép toán không hợp lệ!";
+            }
+        }
+    </script>
+
+</body>
+</html>
