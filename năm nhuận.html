@@ -18,14 +18,11 @@
             let year = parseInt(document.getElementById("year").value);
             let resultText;
 
-            // Điều kiện kiểm tra năm nhuận
             if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
                 resultText = year + " là năm nhuận.";
             } else {
                 resultText = year + " không phải là năm nhuận.";
             }
-
-            // Hiển thị kết quả
             document.getElementById("result").innerText = resultText;
         }
     </script>
