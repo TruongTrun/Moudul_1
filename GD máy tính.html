@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính</title>
+    <style>
+        .may-tinh {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f9f9f9;
+            margin: 100px auto;
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 20px;
+            line-height: 50px;
+        }
+        .button {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: white;
+            border: 1px solid #ccc;
+            text-align: center; 
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div class="may-tinh">
+    <div id="display" class="display"></div> 
+    <div class="button-row">
+        <button class="button" onclick="themSo(1)">1</button>
+        <button class="button" onclick="themSo(2)">2</button>
+        <button class="button" onclick="themSo(3)">3</button>
+        <button class="button" onclick="chonPhepTinh('+')">+</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="themSo(4)">4</button>
+        <button class="button" onclick="themSo(5)">5</button>
+        <button class="button" onclick="themSo(6)">6</button>
+        <button class="button" onclick="chonPhepTinh('-')">-</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="themSo(7)">7</button>
+        <button class="button" onclick="themSo(8)">8</button>
+        <button class="button" onclick="themSo(9)">9</button>
+        <button class="button" onclick="chonPhepTinh('*')">x</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="xoaManHinh()">C</button>
+        <button class="button" onclick="themSo(0)">0</button>
+        <button class="button" onclick="tinhKetQua()">=</button>
+        <button class="button" onclick="chonPhepTinh('/')">/</button>
+    </div>
+</div>
+<script>
+    let nhapSoHienTai = ''; 
+    let nhapSoTruoc = '';    
+    let phepTinh = undefined;
+
+    function themSo(so) {
+        nhapSoHienTai += so;
+        capNhatManHinh();
+    }
+
+    function chonPhepTinh(pt) {
+        if (nhapSoHienTai === '') return;
+        if (nhapSoTruoc !== '') {
+            tinhKetQua();
+        }
+        phepTinh = pt;
+        nhapSoTruoc = nhapSoHienTai;  
+        nhapSoHienTai = '';           
+    }
+
+    function tinhKetQua() {
+        let ketQua;
+        const truoc = parseFloat(nhapSoTruoc);  
+        const hienTai = parseFloat(nhapSoHienTai); 
+        if (isNaN(truoc) || isNaN(hienTai)) return;
+
+        switch (phepTinh) {
+            case '+':
+                ketQua = truoc + hienTai;
+                break;
+            case '-':
+                ketQua = truoc - hienTai;
+                break;
+            case '*':
+                ketQua = truoc * hienTai;
+                break;
+            case '/':
+                ketQua = truoc / hienTai;
+                break;
+            default:
+                return;
+        }
+        nhapSoHienTai = ketQua;  
+        phepTinh = undefined;
+        nhapSoTruoc = '';         
+        capNhatManHinh();
+    }
+
+    function xoaManHinh() {
+        nhapSoHienTai = '';
+        nhapSoTruoc = '';
+        phepTinh = undefined;
+        capNhatManHinh();
+    }
+
+    function capNhatManHinh() {
+        document.getElementById('display').innerText = nhapSoHienTai || '0';
+    }
+
+</script>
+</body>
+</html>
