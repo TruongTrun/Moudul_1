@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiểm tra 2 số chia hết</title>
+</head>
+<body>
+    
+
+    <script>
+        let a = parseFloat(prompt("Nhập số a:"));
+        let b = parseFloat(prompt("Nhập số b:"));
+
+        if (b == 0){
+            alert("Không thể chia cho 0.");
+        }else{
+            if (a % b == 0){
+                alert(a + " chia hết cho " + b);
+            }else{
+                alert(a + "khong chia hết cho" + b);
+            }
+        }
+    </script>
+</body>
+</html>

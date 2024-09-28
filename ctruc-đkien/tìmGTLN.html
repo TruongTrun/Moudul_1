@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số lớn nhất</title>
+</head>
+<body>
+    
+    <script>
+        let so1 = parseFloat(prompt("Nhập số nguyên thứ nhất:"));
+        let so2 = parseInt(prompt("Nhập số nguyên thứ hai:"));
+        let so3 = parseInt(prompt("Nhập số nguyên thứ ba:"));
+
+        let soLonNhat =so1;
+        if (so2 > soLonNhat){
+            soLonNhat = so2;
+        }
+        if(so3 > soLonNhat){
+            soLonNhat = so3;
+        }
+        alert("Số lớn nhất:" + soLonNhat);
+    </script>
+</body>
+</html>

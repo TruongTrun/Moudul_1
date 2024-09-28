@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xếp hạng học lực</title>
+</head>
+<body>
+    <h2>Xếp hạng học lực của sinh viên</h2>
+
+    <label for="diemKiemTra">Điểm kiểm tra:</label>
+    <input type="number" id="diemKiemTra"><br><br>
+
+    <label for="diemGiuaKy">Điểm giữa kỳ:</label>
+    <input type="number" id="diemGiuaKy"><br><br>
+
+    <label for="diemCuoiKy">Điểm cuối kỳ:</label>
+    <input type="number" id="diemCuoiKy"><br><br>
+
+    <button onclick="xepHang()">Xếp hạng</button>
+
+    <script>
+        function xepHang() {
+         
+            let diemKiemTra = parseFloat(document.getElementById('diemKiemTra').value);
+            let diemGiuaKy = parseFloat(document.getElementById('diemGiuaKy').value);
+            let diemCuoiKy = parseFloat(document.getElementById('diemCuoiKy').value);
+
+
+            let diemTrungBinh = (diemKiemTra + diemGiuaKy + diemCuoiKy) / 3;
+
+            let xepHang;
+            if (diemTrungBinh >= 9) {
+                xepHang = "Xuất sắc";
+            } else if (diemTrungBinh >= 7.5) {
+                xepHang = "Giỏi";
+            } else if (diemTrungBinh >= 6) {
+                xepHang = "Khá";
+            } else if (diemTrungBinh >= 5) {
+                xepHang = "Trung bình";
+            } else {
+                xepHang = "Yếu";
+            }
+
+        
+            alert("Điểm trung bình: " + diemTrungBinh.toFixed(2) + ". Xếp hạng: " + xepHang);
+        }
+    </script>
+</body>
+</html>
