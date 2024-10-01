@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích hình chữ nhật</title>
+</head>
+<body>
+    <h2>Tính S hình chữ nhật</h2>
+    <label for="chieuDai">Nhập chiều dài cạnh (a):</label>
+    <input type="number" id="chieuDai"></br>
+    <label for="chieuRong">Nhập chiều rộng cạnh (b):</label>
+    <input type="number" id="chieuRong"></body><br>
+    <button onclick="tinhDienTich()">Tính diện tich</button>
+
+    <script>
+        function tinhDienTich(){
+            const a = document.getElementById('chieuDai').value;
+            const b = document.getElementById('chieuRong').value;
+            const dienTich = a * b;
+            document.write(`Diện tích hình chữ nhật = ${dienTich}`);
+        }
+    </script>
+</body>
+</html>

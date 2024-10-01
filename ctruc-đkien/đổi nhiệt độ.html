@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+    <h2>Chuyển đổi độ *C sang độ F</h2>
+    <label for="doC">Nhập nhiệt độ</label>
+    <input type="number" id="doC">
+    <button onclick="chuyenDoi()">Chuyển Đổi</button>
+
+    <script>
+
+        function chuyenDoi(){
+            let doC = parseFloat(document.getElementById('doC').value);
+            let doF = (doC * 9 / 5) + 32;
+            document.write("Nhiệt Độ: " + doC + "*C=" + doF);
+        }
+    </script>
+</body>
+</html>

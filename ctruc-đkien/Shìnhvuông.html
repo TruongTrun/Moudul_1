@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích hình vuông</title>
+</head>
+<body>
+    <h2>Tính S hình vuông</h2>
+    <label for="canh">"Nhập độ dài cạnh (a):</label>
+    <input type="number" id="canh"/>
+    <button onclick="tinhS()">Tính diện tích</button>
+
+
+    <script>
+      function tinhS(){
+        const a = document.getElementById('canh').value;
+        const dienTich = a * a;
+        document.write(`Diện tích hình vuông = ${dienTich}`);
+      }
+    </script>
+</body>
+</html>

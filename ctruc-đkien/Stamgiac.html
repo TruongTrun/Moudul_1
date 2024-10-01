@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích tam giác</title>
+</head>
+<body>
+    <h2>Tính S tam giác</h2>
+    <label for="canha">Nhập chiều dài cạnh (a):</label>
+    <input type="number" id="canha"></br>
+    <label for="canhb">Nhập chiều dài cạnh (b):</label>
+    <input type="number" id="canhb"></br>
+    <button onclick="tinhDienTich()">Tính diện tích</button>
+
+    <script>
+        function tinhDienTich(){
+            const a = document.getElementById('canha').value;
+            const b = document.getElementById('canhb').value;
+            const dienTich = (a*b) / 2;
+            document.write(`dieenj tích tam giác vuông = ${dienTich}`);
+        }
+    </script>
+</body>
+</html>
