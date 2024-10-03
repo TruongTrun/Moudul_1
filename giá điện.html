@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinh giá điện</title>
+</head>
+<body>
+    <h2>Tính giá điện(theo kv Hà Nội)</h2>
+    <label for="soKwh">Số kwwh đa sử dụng:</label>
+    <input type="number" id="soKwh"><br>
+    <button onclick="tinhGiaDien()">Tính Tiền Điện</button>
+
+    <script>
+        function tinhGiaDien() {
+            let soKwh = parseFloat(document.getElementById("soKwh").value);
+            let tongTien = 0;
+
+            if (soKwh <= 0) {
+                alert("Vui lòng nhập số kWh lớn hơn 0.");
+                return;
+            }
+
+            // Tính tiền điện theo bậc thang
+            if (soKwh <= 50) {
+                tongTien = soKwh * 1728;
+            } else if (soKwh <= 100) {
+                tongTien = 50 * 1728 + (soKwh - 50) * 1786;
+            } else if (soKwh <= 200) {
+                tongTien = 50 * 1728 + 50 * 1786 + (soKwh - 100) * 2074;
+            } else if (soKwh <= 300) {
+                tongTien = 50 * 1728 + 50 * 1786 + 100 * 2074 + (soKwh - 200) * 2612;
+            } else if (soKwh <= 400) {
+                tongTien = 50 * 1728 + 50 * 1786 + 100 * 2074 + 100 * 2612 + (soKwh - 300) * 2919;
+            } else {
+                tongTien = 50 * 1728 + 50 * 1786 + 100 * 2074 + 100 * 2612 + 100 * 2919 + (soKwh - 400) * 3015;
+            }
+
+            // Hiển thị kết quả
+            alert("Tổng tiền điện phải trả là: " + tongTien.toLocaleString('vi-VN') + " VND");
+        }
+    </script>
+</body>
+</html>
