@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Cửu Chương</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+      
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bảng Cửu Chương</h1>
+    <table id="multiplicationTable">
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        function generateTable() {
+            const tableBody = document.getElementById('multiplicationTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                const row = tableBody.insertRow();
+                for (let j = 1; j <= 10; j++) {
+                    const cell = row.insertCell();
+                    cell.textContent = `${j} * ${i} = ${j * i}`;
+                }
+            }
+        }
+
+        generateTable();
+    </script>
+</body>
+</html>
