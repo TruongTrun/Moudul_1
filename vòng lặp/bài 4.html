@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Số Fibonacci Chia Hết Cho 5</title>
+</head>
+<body>
+    <script>
+        let a = 0; 
+        let b = 1;
+        let next; 
+
+        while (true) {
+            next = a + b;
+
+            if (next % 5 === 0) {
+                alert("Số đầu tiên trong dãy Fibonacci chia hết cho 5 là: " + next);
+                break; 
+            }
+
+            a = b; 
+            b = next; 
+        }
+    </script>
+</body>
+</html>
