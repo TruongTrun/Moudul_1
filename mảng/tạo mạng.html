@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm phần tử vào mảng</title>
+</head>
+<body>
+    <h2>Thêm phần tử vào mảng</h2>
+    <input type="text" id="txtGiaTri">
+    <input type="button" id="btnThem" value="Thêm" onclick="themPhanTuVaoMang();"/>
+    <input type="button" id="bitHienThi" value="Hiển Thị" onclick="hienThiMang();"/>
+
+    <div id="ketQua"></div>
+
+    <script>
+        let x = 0;
+        let mang = Array();
+
+        function themPhanTuVaoMang(){
+            let giaTri = document.getElementById("txtGiaTri").value;
+            mang[x] = giaTri;
+            alert("Phần tử đa thêm: "+ mang[x]);
+            x++;
+            document.getElementById("txtGiaTri").value ="";
+        }
+        function hienThiMang(){
+            let e = "<hr/>";
+            for (let i = 0; i < mang.length; i++){
+                e +="Phần tử" + i + "=" + mang[i] + "<br/>";
+            }
+            document.getElementById("ketQua").innerHTML = e;
+        }
+    </script>
+</body>
+</html>
